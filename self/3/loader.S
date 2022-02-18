@@ -1,6 +1,6 @@
 %include "boot.inc"
 section loader vstart=LOADER_BASE_ADDR
-	mov bx, 0x100
+	mov bx, 0x0100
 	mov si ,message
 	mov cx, [len]
 	call my_print
