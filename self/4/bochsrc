@@ -1,0 +1,21 @@
+display_library: x
+
+# BIOS ROM
+romimage: file="$BXSHARE/BIOS-bochs-latest"
+vgaromimage: file="$BXSHARE/VGABIOS-lgpl-latest"
+
+# Memory
+memory: guest=32, host=64
+
+# Hard Disk
+ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
+ata0-master: type=disk, mode=flat, path="disk.img"
+
+# Boot mode
+boot: disk
+
+# log
+log: /tmp/bochs.out
+
+# gdb
+gdbstub: enabled=1, port=1234, text_base=0, data_base=0, bss_base=0

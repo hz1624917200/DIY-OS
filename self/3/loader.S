@@ -16,7 +16,7 @@ my_print:					; vesion 3.0
 	; mov cx, dx
 	mov ax, 0xa0
 	mul bh
-	add ax, bl
+	add al, bl
 	mov bx, ax
   loc_0x37:
 	mov al, byte [si]

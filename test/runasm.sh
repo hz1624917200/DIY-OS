@@ -1,4 +1,5 @@
 #!/bin/bash
+cd $(dirname "$0")
 
 if [ -r $1 ]; then
     nasm -f elf32 $1
