@@ -10,7 +10,7 @@ CODE_DESC:			dd		0x0000ffff
 					dd		DESC_CODE_HIGH4
 DATA_STACK_DESC:	dd		0x0000ffff
 					dd		DESC_DATA_HIGH4
-VIDEO_DESC: 		dd		0x8000_0007		; limit = (0xbfff-0xb800)/4k = 0x7
+VIDEO_DESC: 		dd		0x8000_0007		; limit = (0xbffff-0xb8000)/4k = 0x7
 					dd		DESC_VIDEO_HIGH4
 
 GDT_SIZE	equ		$ - GDT_BASE
@@ -48,6 +48,15 @@ loader_start:
 	dd	16	dup(0)
 [bits 32]
 p_mode_start:
+	; initialize sregs
+	mov ax, SELECTOR_DATA
+	mov ds, ax
+	mov es, ax
+	mov ss, ax
+	mov esp, LOADDER_STACK_TOP
+	mov ax, SELECTOR_VIDEO
+	mov gs, ax
+
 	mov bx, 0x0100
 	mov si, message
 	mov cx, [len]
