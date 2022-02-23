@@ -46,6 +46,7 @@ loader_start:
 	jmp dword SELECTOR_CODE:p_mode_start
 
 	dd	16	dup(0)
+
 [bits 32]
 p_mode_start:
 	; initialize sregs
