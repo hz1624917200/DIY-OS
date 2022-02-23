@@ -43,9 +43,10 @@ loader_start:
 	or eax, 1
 	mov cr0, eax
 
+	; refresh pipeline
 	jmp dword SELECTOR_CODE:p_mode_start
 
-	dd	16	dup(0)
+	; dd	16	dup(0)
 
 [bits 32]
 p_mode_start:
