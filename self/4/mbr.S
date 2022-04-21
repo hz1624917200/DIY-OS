@@ -6,7 +6,7 @@ SECTION MBR vstart=0x7c00
 	mov ss, ax
 	mov fs, ax 
 	mov sp, 0x7c00
-	mov ax, 0xb800	; auxiliary section regisster
+	mov ax, 0xb800	; auxiliary section register
 	mov gs, ax
 	mov ecx, 0		; initialize ecx
 
